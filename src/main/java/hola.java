@@ -13,21 +13,17 @@ import java.util.Scanner;
  */
 public class hola {
     public static void main(String[] args) {
-        Scanner leer = new Scanner(System.in);
-        int limite;
-        System.out.println("Ingresa un numero");
-        limite = leer.nextInt();
-        System.err.println("1");
-        for (int i = 1; i < limite; i++) {
-            int count=0;
-            for (int j = 1; j <= i; j++) {
-                if (i%j==0) {
-                    count++;
-                }
-            }
-            if (count==2) {
-                System.out.println(i);
+        String palabra = "OSO";
+        System.err.println("La palabra: "+palabra+" es palindromo? = "+esPalindromo(palabra));
+        
+    }
+    public static boolean esPalindromo(String palabra){
+        palabra = palabra.toLowerCase();
+        for (int i = 0, j = palabra.length() -1; i <= j; i++,j--) {
+            if (palabra.charAt(i) != palabra.charAt(j)) {
+                return false;
             }
         }
+        return true;
     }
 }
